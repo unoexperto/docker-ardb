@@ -18,7 +18,7 @@ RUN mkdir -p /usr/src/ardb
 
 RUN git clone --depth 1 https://github.com/yinqiwen/ardb.git /usr/src/ardb && \
     sed -e 's@JEMALLOC_VER=.*@JEMALLOC_VER=4.5.0@' -e 's@ROCKSDB_VER=.*@ROCKSDB_VER=5.0.2@' -i /usr/src/ardb/src/Makefile && \
-    storage_engine=rocksdb MALLOC=libc make -C /usr/src/ardb
+    storage_engine=rocksdb make -C /usr/src/ardb
 
 RUN apk del .build-deps
 
